@@ -10,8 +10,8 @@ var actions = [];
 var selectedGrid = [];
 
 var Point = function(row, col) {
-	this.row = row;
-	this.col = col;
+	this.row = parseInt(row);
+	this.col = parseInt(col);
 }
 
 var Action = function(start, end, color) {
@@ -168,7 +168,7 @@ function createCanvas() {
 		return;
 	}
 	
-	if (nCols > 35) {
+	if (nCols > 46) {
 		alert("not support col > 35 now");
 		return;
 	}
