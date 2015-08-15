@@ -151,6 +151,8 @@ function assignColor(action) {
 	}
 }
 
+
+
 function createCanvas() {
 	var nRows = parseInt($('#numRow').val());
 	var nCols = parseInt($('#numCol').val());
