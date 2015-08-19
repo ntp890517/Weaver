@@ -8,8 +8,6 @@ var usedColor = [];
 var zoneMode = false;
 var actions = [];
 var selectedGrid = [];
-var canvasRows = 0;
-var canvasCols = 0;
 
 var Point = function(row, col) {
 	this.row = parseInt(row);
@@ -20,13 +18,6 @@ var Action = function(start, end, color) {
 	this.start = start;
 	this.end = end;
 	this.color = color;
-}
-
-function saveBMP() {
-	var greys = bmp_rgb(5, 1, ['000000','333333', '666666', '999999', '000000']);
-	console.log(greys.toString(16));
-	var blob = new Blob([greys], {"type" : "application/octet-stream"});
-	saveAs(blob, "test.bmp");
 }
 
 function toggleZoneMode() {
@@ -164,9 +155,6 @@ function createCanvas() {
 	var nRows = parseInt($('#numRow').val());
 	var nCols = parseInt($('#numCol').val());
 	var canvas = document.getElementById('canvas');
-	
-	canvasRows = nRows;
-	canvasCols = nCols;
 	
 	var btnSizeDefault = 26;
 	var canvasSize = $('#canvas').innerWidth();
