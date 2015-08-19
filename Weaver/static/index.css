@@ -1,0 +1,22 @@
+body {
+  padding-top: 50px;
+  line-height: 1;
+}
+
+.btn-toolbar {
+  height: 35px;
+  width: 35px;
+}
+
+.row-toolbar {
+  padding: 5px;
+}
+
+.toolbar {
+  background-color: #DCDCDC;
+}
+
+.btn-canvas {
+  height: 26px;
+  border: solid #ffffff 2px;
+}

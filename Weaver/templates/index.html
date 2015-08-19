@@ -14,18 +14,13 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		
-		<!-- Weaver -->
-		<script type="text/javascript" src="FileSaver.js"></script>	
-		
-		<!-- Weaver -->
-		<script type="text/javascript" src="jsbmp.js"></script>		
 
+		{% load staticfiles %}
 		<!-- Custom styles for this template -->
-    <link href="index.css" rel="stylesheet">  
+    <link href="/static/index.css" rel="stylesheet">  
 
 		<!-- Weaver -->
-		<script type="text/javascript" src="index.js"></script>		
+		<script type="text/javascript" src="/static/index.js"></script>		
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -91,7 +86,7 @@
 					<button class="btn btn-default" id="btnZoneMode" type="button" aria-label="Left Align" data-toggle="button" aria-pressed="true" autocomplete="off" onclick="toggleZoneMode()">
 						<span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
 					</button>
-					<button class="btn btn-default" id="btnSave" type="button" aria-label="Left Align" onclick="saveBMP()">
+					<button class="btn btn-default" id="btnSave" type="button" aria-label="Left Align" onclick="">
 						<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
 					</button>
 				</div>
