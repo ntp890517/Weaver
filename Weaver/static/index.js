@@ -22,13 +22,6 @@ var Action = function(start, end, color) {
 	this.color = color;
 }
 
-function saveBMP() {
-	var greys = bmp_rgb(5, 1, ['000000','333333', '666666', '999999', '000000']);
-	console.log(greys.toString(16));
-	var blob = new Blob([greys], {"type" : "application/octet-stream"});
-	saveAs(blob, "test.bmp");
-}
-
 function toggleZoneMode() {
 	if (zoneMode) {
 		zoneMode = false;
