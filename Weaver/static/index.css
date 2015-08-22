@@ -20,3 +20,14 @@ body {
   height: 26px;
   border: solid #ffffff 2px;
 }
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-submit {
+    margin-top: 20px;
+    width: 100%;
+}

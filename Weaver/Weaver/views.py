@@ -10,3 +10,6 @@ def main(request):
 def login(request):
     template_response = views.login(request)
     return templte_responase
+    
+def home(request):
+    return render_to_response('home.html', locals())

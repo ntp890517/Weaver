@@ -16,27 +16,9 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand">Weaver</a>
-        </div>
-        <div>
-          <ul class="nav navbar-nav navbar-left">
-            <li><a href="">Design</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="login">Login</a></li>
-					</ul>
-        </div>
-      </div>
-    </nav>
+		{% block navibar %}{% endblock %}
 		
-		<div>
-		{% include 'design.html' %}
-		</div>
+		{% block main %}{% endblock %}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
