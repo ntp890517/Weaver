@@ -21,8 +21,8 @@ from views import main, index, home, design
 urlpatterns = [
     url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^index/$', index),
+    url(r'^index/$', index, name='index'),
     url('^', include('django.contrib.auth.urls')),
-    url(r'^home/$', home),
-    url(r'^design/$', design),
+    url(r'^home/$', home, name='home'),
+    url(r'^design/$', design, name='design'),
 ]
