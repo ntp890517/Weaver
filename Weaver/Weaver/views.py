@@ -12,8 +12,5 @@ def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/index/')
     
-def home(request):
-    return render_to_response('home.html', locals())
-    
 def design(request):
     return render_to_response('design.html', locals())
