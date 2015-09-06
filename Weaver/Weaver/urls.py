@@ -16,13 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 import django.contrib.auth.urls
-from views import main, index, home, design
+from django.contrib.auth import views as auth_views
+from views import main, index, home, design, logout
 
 urlpatterns = [
     url(r'^$', index),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/$', index),
-    url('^', include('django.contrib.auth.urls')),
+    url(r'^login/$', auth_views.login, {'redirect_field_name':'/index/'}),
+    url(r'^logout/$', logout),
     url(r'^home/$', home),
     url(r'^design/$', design),
 ]
