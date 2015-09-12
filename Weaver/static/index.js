@@ -22,6 +22,35 @@ var Action = function(start, end, color) {
 	this.color = color;
 }
 
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function saveDesign() {
+    alert("test");
+    $.ajax({
+        type : "GET",
+        url : "/save",
+        data : {
+            x : 5,
+            y : 1,
+            csrfmiddlewaretoken : getCookie('csrftoken'),
+        }}).done(function(data){alert(data.message);});
+	//var greys = bmp_rgb(5, 1, ['000000','333333', '666666', '999999', '000000']);
+}
+
 function toggleZoneMode() {
 	if (zoneMode) {
 		zoneMode = false;
