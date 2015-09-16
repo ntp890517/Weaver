@@ -14,7 +14,7 @@ class ImageDrawDesign(ImageDraw.ImageDraw):
     def DrawPixel(self, x, y, w, s, color):
         self.RadiusRectangle([(2*s+w+x*(w+s),2*s+w+y*(w+s)),(2*s+w+x*(w+s)+w,2*s+w+y*(w+s)+w)], 5, fill=color)
         
-def NewDesign(x, y, gridW, space):
+def NewDesign(x, y, gridW, space, bm):
     im = Image.new("RGB", ((x+1)*gridW+(x+2)*space, (y+1)*gridW+(y+2)*space), color='#FFFFFF')
     ds = ImageDrawDesign(im)
     
@@ -28,12 +28,13 @@ def NewDesign(x, y, gridW, space):
         
     for i in range(x):
         for j in range(y):
-            ds.DrawPixel(i, j, gridW, space, '#000000')
+            color = bm[i+j*y]
+            ds.DrawPixel(i, j, gridW, space, color)
 
     return im
-
+    
 if __name__ == '__main__':
-    im = NewDesign(20, 20, 25, 5)
+    im = NewDesign(5, 1, 25, 5, ['#000000','#FF0000', '#00FF00', '#0000FF', '#000000'])
     ds = ImageDrawDesign(im)
     #ds.RadiusRectangle([(100, 100), (200, 200)], 5, fill=(255, 0, 0))
     im.save("test.jpg")

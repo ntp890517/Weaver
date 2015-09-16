@@ -17,7 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 import django.contrib.auth.urls
 from django.contrib.auth import views as auth_views
-from views import main, index, design, logout, save
+from views import main, index, design, logout, save, downloadImage
 
 urlpatterns = [
     url(r'^$', index),
@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'redirect_field_name':'/index/'}),
     url(r'^logout/$', logout),
     url(r'^design/$', design),
-    url(r'^save/$', save),
+    url(r'^save', save),
+    url(r'^images/(?P<imageName>\w+)', downloadImage),
 ]

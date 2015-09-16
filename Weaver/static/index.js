@@ -39,15 +39,17 @@ function getCookie(name) {
 }
 
 function saveDesign() {
-    alert("test");
     $.ajax({
         type : "GET",
         url : "/save",
         data : {
-            x : 5,
-            y : 1,
-            csrfmiddlewaretoken : getCookie('csrftoken'),
-        }}).done(function(data){alert(data.message);});
+            x : canvasCols,
+            y : canvasRows
+        },
+        dataType: 'json',
+        }).done(function(data){
+            window.open(data['url']);
+        });
 	//var greys = bmp_rgb(5, 1, ['000000','333333', '666666', '999999', '000000']);
 }
 
