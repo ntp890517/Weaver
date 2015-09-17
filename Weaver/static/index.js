@@ -1,4 +1,4 @@
-var INIT_COLOR = "#DCDCDC";
+﻿var INIT_COLOR = "#DCDCDC";
 var USED_COLOR_SIZE = 5;
 var MIN_BTN_SIZE = 15;
 var MAX_BTN_SIZE = 40;
@@ -38,18 +38,52 @@ function getCookie(name) {
     return cookieValue;
 }
 
+var hexDigits = new Array
+        ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
+
+//Function to convert hex format to a rgb color
+function rgb2hex(rgb) {
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+}
+
+function hex(x) {
+    return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+}
+
+function collectPixels() {
+    var result = "";
+    for(i = 0 ; i < canvasRows ; i++) {
+		for(j = 0 ; j < canvasCols ; j++) {
+            var btnName = '#btnCanvas_' + i.toString() + '_' + j.toString();
+            var color = $(btnName).css('background-color');
+            result = result + rgb2hex(color);
+            if (i != canvasRows-1 || j != canvasCols-1) {
+                result = result + ',';
+            }
+		}
+	}
+    alert(result);
+    return result;
+}
+
 function saveDesign() {
-    $.ajax({
-        type : "GET",
-        url : "/save",
-        data : {
-            x : canvasCols,
-            y : canvasRows
-        },
-        dataType: 'json',
-        }).done(function(data){
-            window.open(data['url']);
-        });
+    if (canvasRows == 0 || canvasCols == 0) {
+        alert('尚未有設計圖');
+    } else {
+        $.ajax({
+            type : "GET",
+            url : "/save",
+            data : {
+                x : canvasCols,
+                y : canvasRows,
+                pixelArray : collectPixels()
+            },
+            dataType: 'json',
+            }).done(function(data){
+                window.open(data['url']);
+            });
+    }
 	//var greys = bmp_rgb(5, 1, ['000000','333333', '666666', '999999', '000000']);
 }
 
