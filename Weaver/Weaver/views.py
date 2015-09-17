@@ -60,8 +60,8 @@ def NewDesign(x, y, gridW, space, bm):
     return im
 
 def save(request):
-    pixelList = request.GET['pixelArray'].split(',')
-    im = NewDesign(int(request.GET['x']), int(request.GET['y']), 25, 5, pixelList)
+    pixelList = request.POST['pixelArray'].split(',')
+    im = NewDesign(int(request.POST['x']), int(request.POST['y']), 25, 5, pixelList)
     im.save("images/test.jpg")
     
     data = {}

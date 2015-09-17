@@ -71,12 +71,13 @@ function saveDesign() {
         alert('尚未有設計圖');
     } else {
         $.ajax({
-            type : "GET",
+            type : "POST",
             url : "/save",
             data : {
                 x : canvasCols,
                 y : canvasRows,
-                pixelArray : collectPixels()
+                pixelArray : collectPixels(),
+                csrfmiddlewaretoken : getCookie('csrftoken')
             },
             dataType: 'json',
             }).done(function(data){
